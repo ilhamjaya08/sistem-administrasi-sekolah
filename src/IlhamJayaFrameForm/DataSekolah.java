@@ -70,6 +70,11 @@ public class DataSekolah extends javax.swing.JFrame {
         });
 
         jDELETEButton.setText("HAPUS");
+        jDELETEButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jDELETEButtonMouseClicked(evt);
+            }
+        });
 
         jEDITButton.setText("EDIT");
         jEDITButton.addActionListener(new java.awt.event.ActionListener() {
@@ -237,6 +242,11 @@ public class DataSekolah extends javax.swing.JFrame {
     private void jADDRESSFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jADDRESSFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jADDRESSFieldActionPerformed
+
+    private void jDELETEButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDELETEButtonMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jDELETEButtonMouseClicked
 
     /**
      * @param args the command line arguments

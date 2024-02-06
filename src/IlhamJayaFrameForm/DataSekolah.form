@@ -189,6 +189,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="HAPUS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jDELETEButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jEDITButton">
           <Properties>
