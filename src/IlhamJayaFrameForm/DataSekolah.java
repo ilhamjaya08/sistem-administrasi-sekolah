@@ -15,9 +15,7 @@ import java.util.ArrayList;
  */
 public class DataSekolah extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DataSekolah
-     */
+    //private object JoptionPane();
     public DataSekolah() {
         initComponents();
     }
@@ -77,13 +75,18 @@ public class DataSekolah extends javax.swing.JFrame {
         });
 
         jEDITButton.setText("EDIT");
+        jEDITButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jEDITButtonMouseClicked(evt);
+            }
+        });
         jEDITButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jEDITButtonActionPerformed(evt);
             }
         });
 
-        jCLEARButton.setText("BERSIHKAN");
+        jCLEARButton.setText("BERSIHKAN KOLOM");
         jCLEARButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jCLEARButtonMouseClicked(evt);
@@ -129,7 +132,7 @@ public class DataSekolah extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,16 +240,50 @@ public class DataSekolah extends javax.swing.JFrame {
 
     private void jCLEARButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCLEARButtonMouseClicked
         // TODO add your handling code here:
+        jNISNField.setText("");
+        jNAMEField.setText("");
+        jADDRESSField.setText("");
+        jSCHOOLField.setText("");
     }//GEN-LAST:event_jCLEARButtonMouseClicked
 
     private void jADDRESSFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jADDRESSFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jADDRESSFieldActionPerformed
+    /*public void cleanTable()
+    {
+        DefaultTableModel tabelModel = (DefaultTableModel) tabelData.getModel();
+    int baris = tabelModel.getRowCount(); for (int a=0;a<baris;a++)
+    {
+    tabelModel.removeRow(0);
+    }*/
+    
 
     private void jDELETEButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDELETEButtonMouseClicked
         // TODO add your handling code here:
-        
+        DefaultTableModel dataModel = (DefaultTableModel) tabelData.getModel();
+        try{
+            int Selectrowindex = tabelData.getSelectedRow();
+            int SelectedRowIndex = 0;
+            dataModel.removeRow (SelectedRowIndex);
+        }catch (Exception ex)
+        {
+            JoptionPane.showMessageDialog(null,ex);
+        }
     }//GEN-LAST:event_jDELETEButtonMouseClicked
+
+    private void jEDITButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEDITButtonMouseClicked
+        DefaultTableModel Model = (DefaultTableModel) tabelData.getModel();
+        if (tabelData.getSelectedRowCount () == 1){
+         String NISN = jNISNField.getText();
+         String NAMA = jNAMEField.getText();
+         String ALAMAT = jADDRESSField.getText();
+         String SEKOLAH = jSCHOOLField.getText();
+         Model.setValueAt (NISN, tabelData.getSelectedRow(), 0);
+         Model.setValueAt (NAMA, tabelData.getSelectedRow(), 1);
+         Model.setValueAt (ALAMAT, tabelData.getSelectedRow(), 2);
+         Model.setValueAt (SEKOLAH, tabelData.getSelectedRow(), 3);
+        }
+    }//GEN-LAST:event_jEDITButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -304,3 +341,11 @@ public class DataSekolah extends javax.swing.JFrame {
     private javax.swing.JTable tabelData;
     // End of variables declaration//GEN-END:variables
 }
+    class JoptionPane {
+        public static void showMessageDialog(Object object, Exception ex){
+             throw new UnsupportedOperationException("Not Supported Yet");
+        }
+        public JoptionPane(){
+            
+        }
+    }
