@@ -279,9 +279,9 @@ public class DataSekolah extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel dataModel = (DefaultTableModel) tabelData.getModel();
         try{
-            int Selectrowindex = tabelData.getSelectedRow();
+            int Selectedrowindex = tabelData.getSelectedRow();
             int SelectedRowIndex = 0;
-            dataModel.removeRow (SelectedRowIndex);
+            dataModel.removeRow(tabelData.getRowCount()-1);
         }catch (Exception ex)
         {
             JoptionPane.showMessageDialog(null,ex);
